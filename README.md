@@ -35,6 +35,42 @@ flutter pub run build_runner build --delete-conflicting-outputs
 flutter test
 ```
 
+### Test Coverage
+
+To generate test coverage reports, you need to have LCOV installed:
+
+**On Windows:**
+```
+choco install lcov
+```
+
+**On macOS:**
+```
+brew install lcov
+```
+
+**On Linux:**
+```
+sudo apt-get install lcov
+```
+
+Then run the coverage script:
+
+**On Windows:**
+```
+coverage.bat
+```
+
+**On macOS/Linux:**
+```
+sh coverage.sh
+```
+
+This will:
+1. Run all tests with coverage enabled
+2. Generate an HTML report
+3. Open the report in your default browser
+
 ## Project Structure
 
 ```

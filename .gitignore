@@ -45,3 +45,6 @@ app.*.map.json
 
 # Test mocks generated files
 *.mocks.dart
+
+# Coverage reports
+/coverage/
