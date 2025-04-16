@@ -10,7 +10,8 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMixin {
+class _LoginPageState extends State<LoginPage>
+    with SingleTickerProviderStateMixin {
   final _loginFormKey = GlobalKey<FormState>();
   final _signupFormKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
@@ -88,32 +89,40 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                     child: Form(
                                       key: _signupFormKey,
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
                                         children: [
                                           const SizedBox(height: 8),
-                                          const Text('Email', style: TextStyle(color: Colors.grey)),
+                                          const Text('Email',
+                                              style: TextStyle(
+                                                  color: Colors.grey)),
                                           TextFormField(
                                             controller: _signupEmailController,
                                             decoration: const InputDecoration(
                                               border: UnderlineInputBorder(),
                                             ),
                                             validator: (value) {
-                                              if (value == null || value.isEmpty) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
                                                 return 'Please enter your email';
                                               }
                                               return null;
                                             },
                                           ),
                                           const SizedBox(height: 16),
-                                          const Text('Password', style: TextStyle(color: Colors.grey)),
+                                          const Text('Password',
+                                              style: TextStyle(
+                                                  color: Colors.grey)),
                                           TextFormField(
-                                            controller: _signupPasswordController,
+                                            controller:
+                                                _signupPasswordController,
                                             obscureText: true,
                                             decoration: const InputDecoration(
                                               border: UnderlineInputBorder(),
                                             ),
                                             validator: (value) {
-                                              if (value == null || value.isEmpty) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
                                                 return 'Please enter your password';
                                               }
                                               return null;
@@ -122,51 +131,73 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                           const SizedBox(height: 24),
                                           ElevatedButton(
                                             onPressed: () {
-                                              if (_signupFormKey.currentState!.validate()) {
+                                              if (_signupFormKey.currentState!
+                                                  .validate()) {
                                                 // Handle signup
                                               }
                                             },
                                             style: ElevatedButton.styleFrom(
-                                              backgroundColor: const Color(0xFFEF5DA8),
-                                              padding: const EdgeInsets.symmetric(vertical: 12),
+                                              backgroundColor:
+                                                  const Color(0xFFEF5DA8),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 12),
                                               shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(4),
+                                                borderRadius:
+                                                    BorderRadius.circular(4),
                                               ),
                                             ),
-                                            child: const Text('SIGN UP', style: TextStyle(color: Colors.white)),
+                                            child: const Text('SIGN UP',
+                                                style: TextStyle(
+                                                    color: Colors.white)),
                                           ),
                                           const SizedBox(height: 16),
                                           const Row(
                                             children: [
                                               Expanded(child: Divider()),
                                               Padding(
-                                                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                                                child: Text('OR', style: TextStyle(color: Colors.grey)),
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 8.0),
+                                                child: Text('OR',
+                                                    style: TextStyle(
+                                                        color: Colors.grey)),
                                               ),
                                               Expanded(child: Divider()),
                                             ],
                                           ),
                                           const SizedBox(height: 16),
                                           Row(
-                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             children: [
-                                              _socialButton(FontAwesomeIcons.google, Colors.red),
+                                              _socialButton(
+                                                  FontAwesomeIcons.google,
+                                                  Colors.red),
                                               const SizedBox(width: 16),
-                                              _socialButton(FontAwesomeIcons.facebook, Colors.blue),
+                                              _socialButton(
+                                                  FontAwesomeIcons.facebook,
+                                                  Colors.blue),
                                               const SizedBox(width: 16),
-                                              _socialButton(FontAwesomeIcons.linkedin, Colors.lightBlue),
+                                              _socialButton(
+                                                  FontAwesomeIcons.linkedin,
+                                                  Colors.lightBlue),
                                             ],
                                           ),
                                           const SizedBox(height: 16),
                                           Row(
-                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             children: [
-                                              const Text('Already a user?', style: TextStyle(color: Colors.grey)),
+                                              const Text('Already a user?',
+                                                  style: TextStyle(
+                                                      color: Colors.grey)),
                                               TextButton(
                                                 onPressed: () {
                                                   _tabController.animateTo(1);
                                                 },
-                                                child: const Text('LOGIN', style: TextStyle(color: Colors.blue)),
+                                                child: const Text('LOGIN',
+                                                    style: TextStyle(
+                                                        color: Colors.blue)),
                                               ),
                                             ],
                                           ),
@@ -175,7 +206,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                     ),
                                   ),
                                 ),
-                                
+
                                 // Login Tab
                                 SingleChildScrollView(
                                   child: Padding(
@@ -183,24 +214,30 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                     child: Form(
                                       key: _loginFormKey,
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
                                         children: [
                                           const SizedBox(height: 8),
-                                          const Text('Email', style: TextStyle(color: Colors.grey)),
+                                          const Text('Email',
+                                              style: TextStyle(
+                                                  color: Colors.grey)),
                                           TextFormField(
                                             controller: _emailController,
                                             decoration: const InputDecoration(
                                               border: UnderlineInputBorder(),
                                             ),
                                             validator: (value) {
-                                              if (value == null || value.isEmpty) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
                                                 return 'Please enter your email';
                                               }
                                               return null;
                                             },
                                           ),
                                           const SizedBox(height: 16),
-                                          const Text('Password', style: TextStyle(color: Colors.grey)),
+                                          const Text('Password',
+                                              style: TextStyle(
+                                                  color: Colors.grey)),
                                           TextFormField(
                                             controller: _passwordController,
                                             obscureText: true,
@@ -208,7 +245,8 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                               border: UnderlineInputBorder(),
                                             ),
                                             validator: (value) {
-                                              if (value == null || value.isEmpty) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
                                                 return 'Please enter your password';
                                               }
                                               return null;
@@ -220,12 +258,16 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                                 value: _rememberMe,
                                                 onChanged: (value) {
                                                   setState(() {
-                                                    _rememberMe = value ?? false;
+                                                    _rememberMe =
+                                                        value ?? false;
                                                   });
                                                 },
-                                                activeColor: const Color(0xFFEF5DA8),
+                                                activeColor:
+                                                    const Color(0xFFEF5DA8),
                                               ),
-                                              const Text('Remember me?', style: TextStyle(color: Colors.grey)),
+                                              const Text('Remember me?',
+                                                  style: TextStyle(
+                                                      color: Colors.grey)),
                                             ],
                                           ),
                                           const SizedBox(height: 8),
@@ -233,25 +275,40 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                             onPressed: state is AuthLoading
                                                 ? null
                                                 : () {
-                                                    if (_loginFormKey.currentState!.validate()) {
-                                                      context.read<AuthBloc>().add(
+                                                    if (_loginFormKey
+                                                        .currentState!
+                                                        .validate()) {
+                                                      context
+                                                          .read<AuthBloc>()
+                                                          .add(
                                                             LoginEvent(
-                                                              email: _emailController.text,
-                                                              password: _passwordController.text,
+                                                              email:
+                                                                  _emailController
+                                                                      .text,
+                                                              password:
+                                                                  _passwordController
+                                                                      .text,
                                                             ),
                                                           );
                                                     }
                                                   },
                                             style: ElevatedButton.styleFrom(
-                                              backgroundColor: const Color(0xFFEF5DA8),
-                                              padding: const EdgeInsets.symmetric(vertical: 12),
+                                              backgroundColor:
+                                                  const Color(0xFFEF5DA8),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 12),
                                               shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(4),
+                                                borderRadius:
+                                                    BorderRadius.circular(4),
                                               ),
                                             ),
                                             child: state is AuthLoading
-                                                ? const CircularProgressIndicator(color: Colors.white)
-                                                : const Text('LOGIN', style: TextStyle(color: Colors.white)),
+                                                ? const CircularProgressIndicator(
+                                                    color: Colors.white)
+                                                : const Text('LOGIN',
+                                                    style: TextStyle(
+                                                        color: Colors.white)),
                                           ),
                                           Align(
                                             alignment: Alignment.centerRight,
@@ -259,40 +316,58 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                               onPressed: () {
                                                 // Forgot password logic
                                               },
-                                              child: const Text('Forgot Password?', style: TextStyle(color: Colors.grey)),
+                                              child: const Text(
+                                                  'Forgot Password?',
+                                                  style: TextStyle(
+                                                      color: Colors.grey)),
                                             ),
                                           ),
                                           const Row(
                                             children: [
                                               Expanded(child: Divider()),
                                               Padding(
-                                                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                                                child: Text('OR', style: TextStyle(color: Colors.grey)),
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 8.0),
+                                                child: Text('OR',
+                                                    style: TextStyle(
+                                                        color: Colors.grey)),
                                               ),
                                               Expanded(child: Divider()),
                                             ],
                                           ),
                                           const SizedBox(height: 16),
                                           Row(
-                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             children: [
-                                              _socialButton(FontAwesomeIcons.google, Colors.red),
+                                              _socialButton(
+                                                  FontAwesomeIcons.google,
+                                                  Colors.red),
                                               const SizedBox(width: 16),
-                                              _socialButton(FontAwesomeIcons.facebook, Colors.blue),
+                                              _socialButton(
+                                                  FontAwesomeIcons.facebook,
+                                                  Colors.blue),
                                               const SizedBox(width: 16),
-                                              _socialButton(FontAwesomeIcons.linkedin, Colors.lightBlue),
+                                              _socialButton(
+                                                  FontAwesomeIcons.linkedin,
+                                                  Colors.lightBlue),
                                             ],
                                           ),
                                           const SizedBox(height: 16),
                                           Row(
-                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             children: [
-                                              const Text('Need an account?', style: TextStyle(color: Colors.grey)),
+                                              const Text('Need an account?',
+                                                  style: TextStyle(
+                                                      color: Colors.grey)),
                                               TextButton(
                                                 onPressed: () {
                                                   _tabController.animateTo(0);
                                                 },
-                                                child: const Text('SIGN UP', style: TextStyle(color: Colors.blue)),
+                                                child: const Text('SIGN UP',
+                                                    style: TextStyle(
+                                                        color: Colors.blue)),
                                               ),
                                             ],
                                           ),
@@ -330,4 +405,4 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       ),
     );
   }
-} 
+}

@@ -23,8 +23,8 @@ void main() {
     authBloc.close();
   });
 
-  final tEmail = 'test@example.com';
-  final tPassword = 'password';
+  const tEmail = 'test@example.com';
+  const tPassword = 'password';
   final tUser = User(
     id: '1',
     email: tEmail,
@@ -60,14 +60,14 @@ void main() {
     blocTest<AuthBloc, AuthState>(
       'should emit [AuthLoading, AuthError] when login fails',
       build: () {
-        when(mockLoginUseCase(any)).thenAnswer((_) async => Left(
+        when(mockLoginUseCase(any)).thenAnswer((_) async => const Left(
             ServerFailure(message: 'Invalid credentials', code: '401')));
         return authBloc;
       },
       act: (bloc) => bloc.add(LoginEvent(email: tEmail, password: tPassword)),
       expect: () => [
         AuthLoading(),
-        AuthError(message: 'Invalid credentials'),
+        const AuthError(message: 'Invalid credentials'),
       ],
       verify: (bloc) {
         verify(mockLoginUseCase(LoginParams(
@@ -77,4 +77,4 @@ void main() {
       },
     );
   });
-} 
+}

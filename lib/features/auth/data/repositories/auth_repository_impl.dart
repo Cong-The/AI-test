@@ -16,7 +16,7 @@ class AuthRepositoryImpl implements AuthRepository {
         token: 'mock_token',
       ));
     } else {
-      return Left(ServerFailure(
+      return const Left(ServerFailure(
         message: 'Invalid credentials',
         code: '401',
       ));
@@ -35,4 +35,4 @@ class AuthRepositoryImpl implements AuthRepository {
     // TODO: Implement actual logout logic
     throw UnimplementedError();
   }
-} 
+}

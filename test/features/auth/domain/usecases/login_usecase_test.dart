@@ -19,8 +19,8 @@ void main() {
     loginUseCase = LoginUseCase(mockAuthRepository);
   });
 
-  final tEmail = 'test@example.com';
-  final tPassword = 'password';
+  const tEmail = 'test@example.com';
+  const tPassword = 'password';
   final tUser = User(
     id: '1',
     email: tEmail,
@@ -28,14 +28,15 @@ void main() {
     token: 'test_token',
   );
 
-  test('should get User from the repository when login is successful', () async {
+  test('should get User from the repository when login is successful',
+      () async {
     // arrange
     when(mockAuthRepository.login(any, any))
         .thenAnswer((_) async => Right(tUser));
 
     // act
-    final result = await loginUseCase(
-        LoginParams(email: tEmail, password: tPassword));
+    final result =
+        await loginUseCase(LoginParams(email: tEmail, password: tPassword));
 
     // assert
     expect(result, Right(tUser));
@@ -45,17 +46,18 @@ void main() {
 
   test('should return a ServerFailure when login fails', () async {
     // arrange
-    final tFailure = ServerFailure(message: 'Invalid credentials', code: '401');
+    final tFailure =
+        const ServerFailure(message: 'Invalid credentials', code: '401');
     when(mockAuthRepository.login(any, any))
         .thenAnswer((_) async => Left(tFailure));
 
     // act
-    final result = await loginUseCase(
-        LoginParams(email: tEmail, password: tPassword));
+    final result =
+        await loginUseCase(LoginParams(email: tEmail, password: tPassword));
 
     // assert
     expect(result, Left(tFailure));
     verify(mockAuthRepository.login(tEmail, tPassword));
     verifyNoMoreInteractions(mockAuthRepository);
   });
-} 
+}

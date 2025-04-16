@@ -68,8 +68,8 @@ void main() {
     const errorMessage = 'An error occurred';
     whenListen(
       mockAuthBloc,
-      Stream.value(AuthError(message: errorMessage)),
-      initialState: AuthError(message: errorMessage),
+      Stream.value(const AuthError(message: errorMessage)),
+      initialState: const AuthError(message: errorMessage),
     );
 
     // act
@@ -112,13 +112,13 @@ void main() {
   testWidgets('should navigate to home when user is authenticated',
       (WidgetTester tester) async {
     // arrange
-    final tUser = User(
+    final tUser = const User(
       id: '1',
       email: 'test@example.com',
       name: 'Test User',
       token: 'test_token',
     );
-    
+
     // We need to use whenListen to simulate state changes
     whenListen(
       mockAuthBloc,
@@ -143,11 +143,11 @@ void main() {
 
     // Initial render
     await tester.pump();
-    
+
     // After navigation occurs
     await tester.pumpAndSettle();
 
     // assert
     expect(find.text('Home Screen'), findsOneWidget);
   });
-} 
+}
